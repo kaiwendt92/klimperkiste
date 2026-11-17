@@ -1,0 +1,16 @@
+{
+  "name": "klimperkiste",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Soundboard für Babys als installierbare Web-App (PWA) für iPad, iPhone und Android.",
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -p . --watch",
+    "serve": "npx --yes http-server public -p 8080 -c-1",
+    "sounds": "python3 tools/generate_sounds.py",
+    "icons": "python3 tools/generate_icons.py"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0"
+  }
+}

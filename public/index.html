@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Klimperkiste</title>
+  <meta name="description" content="Ein einfaches Soundboard für Babys – 9 Kacheln, 9 Melodien.">
+  <meta name="theme-color" content="#FFF7EC">
+
+  <!-- Als App auf dem Home-Bildschirm (iPad/iPhone) -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Klimperkiste">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <main id="board" aria-label="Soundboard"></main>
+
+  <button id="parent-lock" aria-label="Elternbereich (gedrückt halten)">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h1Zm2 0h6V8a3 3 0 0 0-6 0v2Z"/></svg>
+    <svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20"/></svg>
+  </button>
+
+  <!-- Elternsperre -->
+  <div id="gate" class="overlay" hidden>
+    <div class="dialog">
+      <h2>Nur für Eltern</h2>
+      <p>Bitte tippe auf das richtige Ergebnis:</p>
+      <p id="gate-question" class="question"></p>
+      <div id="gate-options" class="options"></div>
+      <button id="gate-cancel" class="link">Abbrechen</button>
+    </div>
+  </div>
+
+  <!-- Elternbereich -->
+  <div id="parent" class="overlay" hidden>
+    <div class="dialog scrollable">
+      <h2>Elternbereich</h2>
+
+      <section>
+        <h3>Kindermodus</h3>
+        <p>Die App verhindert bereits Zoomen, Scrollen und langes Drücken.
+           Damit dein Kind die App gar nicht verlassen kann, nutze zusätzlich die Sperre des Geräts:</p>
+        <details>
+          <summary>iPad / iPhone: „Geführter Zugriff“</summary>
+          <ol>
+            <li>Einstellungen → Bedienungshilfen → Geführter Zugriff → einschalten und Code festlegen.</li>
+            <li>Klimperkiste öffnen und die Seitentaste (bzw. Home-Taste) <b>3× schnell</b> drücken → „Starten“.</li>
+            <li>Beenden: wieder 3× drücken und Code eingeben.</li>
+          </ol>
+        </details>
+        <details>
+          <summary>Android: „App anheften“</summary>
+          <ol>
+            <li>Einstellungen → Sicherheit → App anheften (Bildschirm fixieren) → einschalten.</li>
+            <li>Übersicht der geöffneten Apps öffnen → auf das App-Symbol tippen → „Anheften“.</li>
+            <li>Lösen: „Zurück“ und „Übersicht“ gleichzeitig gedrückt halten.</li>
+          </ol>
+        </details>
+        <button id="fullscreen-btn" class="secondary">Vollbild aktivieren</button>
+      </section>
+
+      <section id="install-hint">
+        <h3>Als App installieren</h3>
+        <p><b>iPad / iPhone (Safari):</b> Teilen-Symbol → „Zum Home-Bildschirm“.<br>
+           <b>Android (Chrome):</b> Menü ⋮ → „App installieren“ bzw. „Zum Startbildschirm hinzufügen“.</p>
+      </section>
+
+      <section>
+        <h3>Erweiterungen</h3>
+        <label class="toggle disabled">
+          <input type="checkbox" disabled>
+          <span>Bilder-Erweiterung <small>(kommt in einer späteren Version)</small></span>
+        </label>
+      </section>
+
+      <section>
+        <h3>Wiedergabe</h3>
+        <button id="stop-btn" class="secondary">Laufenden Sound stoppen</button>
+      </section>
+
+      <section class="meta">
+        <p id="offline-status"></p>
+        <p>Klimperkiste · Version <span id="version"></span> · Keine Werbung, keine Datenerhebung.</p>
+      </section>
+
+      <button id="parent-close" class="primary">Zurück zum Soundboard</button>
+    </div>
+  </div>
+</body>
+</html>
