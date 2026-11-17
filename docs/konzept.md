@@ -48,4 +48,4 @@ Die offenen Fragen dazu werden vor Beginn von Phase 2 geklärt.
 ## Offene Punkte
 
 - Termin für eine erste nutzbare Version: Kai meldet sich im Lauf der Woche
-- GitHub-Repository: GitHub-Konto mit Claude verbinden bzw. leeres Repo anlegen
+- Code liegt unter github.com/kaiwendt92/klimperkiste. GitHub Pages muss noch einmalig eingeschaltet werden (Settings → Pages → Source: GitHub Actions)
